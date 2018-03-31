@@ -1,4 +1,5 @@
 {{#todo-items}}
-  {{todo-item text="SXDxd"}}
-  {{todo-item text="Sbre"}}
+  {{#each model as |item|}}
+    {{todo-item text=item.text}}
+  {{/each}}
 {{/todo-items}}
