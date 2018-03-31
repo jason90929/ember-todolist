@@ -1,3 +1,9 @@
 <li>
-  {{text}}
+  <a
+    role="button"
+    {{action "toggleComplete" todo}}
+    class="{{if todo.isCompleted "completed"}}">
+    {{todo.text}}
+    {{todo.isCompleted}}
+  </a>
 </li>
