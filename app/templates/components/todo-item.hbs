@@ -3,6 +3,7 @@
     role="button"
     {{action "toggleComplete" todo}}
     class="{{if todo.isCompleted "completed"}}">
+    {{todo}}
     {{todo.text}}
     {{todo.isCompleted}}
   </a>

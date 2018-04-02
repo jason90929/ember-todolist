@@ -1,8 +1,10 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  model () {
-    // const todos = this.get('store').findAll('todo')
-    // return todos
+  model (params) {
+    return this.store.findAll('todo')
+  },
+  setupController (controller, models) {
+    controller.setProperties(models)
   }
 });
