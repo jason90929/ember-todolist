@@ -1,10 +1,11 @@
 <form>
-  <input
+  {{input
     type="text"
-    placeholder="todo">
+    placeholder="todo"
+    value=(mut todoInput)}}
   <button
     type="submit"
-    {{action "addTodo" "wev"}}>
+    {{action "addTodo" todoInput}}>
     Add
   </button>
 </form>
