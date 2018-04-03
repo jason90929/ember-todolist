@@ -9,6 +9,11 @@
         oninput={{action "editing"}}
         onkeydown={{action "onkeydown"}}>
     </label>
+    <button
+      type="button"
+      onclick={{action "saveEdit"}}>
+      Save
+    </button>
   {{else}}
     <label>
       {{input
@@ -22,5 +27,10 @@
       onclick={{action "handleClickText"}}>
       {{todo.text}}
     </a>
+    <button
+      type="button"
+      onclick={{action "handleDelete"}}>
+      Delete
+    </button>
   {{/if}}
 </li>

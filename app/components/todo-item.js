@@ -52,6 +52,10 @@ export default Component.extend({
 
     editing (e) {
       this.set('editingText', e.target.value)
+    },
+
+    handleDelete (todo) {
+      this.get('todo').destroyRecord()
     }
   }
 })
