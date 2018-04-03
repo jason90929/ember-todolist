@@ -1,10 +1,8 @@
 <li>
   <a
     role="button"
-    {{action "toggleComplete" todo}}
-    class="{{if todo.isCompleted "completed"}}">
-    {{todo}}
+    class="{{if todo.isCompleted "completed"}}"
+    onclick={{action "toggleComplete" todo}}>
     {{todo.text}}
-    {{todo.isCompleted}}
   </a>
 </li>
