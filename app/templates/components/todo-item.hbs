@@ -1,8 +1,25 @@
 <li>
-  <a
-    role="button"
-    class="{{if todo.isCompleted "completed"}}"
-    onclick={{action "toggleComplete" todo}}>
-    {{todo.text}}
-  </a>
+  {{#if isEditing}}
+    <label>
+      <input
+        type="text"
+        value={{editingText}}
+        onblur={{action "closeEdit"}}
+        oninput={{action "editing"}}
+        onkeydown={{action "onkeydown"}}>
+    </label>
+  {{else}}
+    <label>
+      <input
+        type="checkbox"
+        value=todo.isCompleted
+        onclick={{action "toggleComplete" todo}}>
+    </label>
+    <a
+      role="button"
+      class="{{if todo.isCompleted "completed"}}"
+      onclick={{action "showEdit"}}>
+      {{todo.text}}
+    </a>
+  {{/if}}
 </li>
