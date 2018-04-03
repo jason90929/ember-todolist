@@ -11,10 +11,10 @@
     </label>
   {{else}}
     <label>
-      <input
+      {{input
         type="checkbox"
-        value=todo.isCompleted
-        onclick={{action "toggleComplete"}}>
+        checked=todo.isCompleted
+        onchange=(action "toggleComplete")}}
     </label>
     <a
       role="button"
