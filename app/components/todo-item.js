@@ -1,11 +1,12 @@
 import Component from '@ember/component'
+import { schedule } from '@ember/runloop'
 
 export default Component.extend({
   isEditing: false,
   editingText: '',
 
   actions: {
-    toggleComplete (todo) {
+    toggleComplete () {
       this.set('todo.isCompleted', !this.get('todo.isCompleted'))
     },
 
@@ -15,7 +16,7 @@ export default Component.extend({
       if (!(el && el[0])) {
         return
       }
-      Ember.run.schedule('afterRender', () => {
+      schedule('afterRender', () => {
         const input = el[0].querySelector('input')
         if (!input) {
           return
