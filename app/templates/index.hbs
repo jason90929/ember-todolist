@@ -1,0 +1,17 @@
+<form>
+  {{input
+    type="text"
+    placeholder="todo"
+    value=(mut todoInput)}}
+  <button
+    type="submit"
+    {{action "addTodo" todoInput}}>
+    Add
+  </button>
+</form>
+
+{{#todo-items}}
+  {{#each model as |todo|}}
+    {{todo-item todo=todo}}
+  {{/each}}
+{{/todo-items}}
