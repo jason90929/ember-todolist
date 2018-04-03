@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@ember/component'
 
 export default Component.extend({
   isEditing: false,
@@ -7,6 +7,21 @@ export default Component.extend({
   actions: {
     toggleComplete (todo) {
       this.set('todo.isCompleted', !this.get('todo.isCompleted'))
+    },
+
+    handleClickText () {
+      this.send('showEdit')
+      let el = this.$()
+      if (!(el && el[0])) {
+        return
+      }
+      Ember.run.schedule('afterRender', () => {
+        const input = el[0].querySelector('input')
+        if (!input) {
+          return
+        }
+        input.focus()
+      })
     },
 
     showEdit () {
@@ -26,8 +41,11 @@ export default Component.extend({
     },
 
     saveEdit () {
+      const editingText = this.get('editingText').trim()
+      if (editingText) {
+        this.set('todo.text', editingText)
+      }
       this.set('isEditing', false)
-      this.set('todo.text', this.get('editingText'))
       this.set('editingText', '')
     },
 
@@ -35,4 +53,4 @@ export default Component.extend({
       this.set('editingText', e.target.value)
     }
   }
-});
+})

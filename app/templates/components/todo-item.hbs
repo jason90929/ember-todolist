@@ -2,6 +2,7 @@
   {{#if isEditing}}
     <label>
       <input
+        id="edit-input"
         type="text"
         value={{editingText}}
         onblur={{action "closeEdit"}}
@@ -18,7 +19,7 @@
     <a
       role="button"
       class="{{if todo.isCompleted "completed"}}"
-      onclick={{action "showEdit"}}>
+      onclick={{action "handleClickText"}}>
       {{todo.text}}
     </a>
   {{/if}}
