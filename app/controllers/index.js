@@ -1,13 +1,7 @@
-import Controller from '@ember/controller';
-// import Ember from 'ember';
+import Controller from '@ember/controller'
 
 export default Controller.extend({
   todoInput: '',
-  // todos: Ember.computed('todo', function () {
-  //   console.log(this)
-  //   console.log(this.get('model'))
-  //   return this.get('model')
-  // }),
   actions: {
     addTodo (text) {
       const payload = {
@@ -17,4 +11,4 @@ export default Controller.extend({
       todo.save()
     }
   }
-});
+})

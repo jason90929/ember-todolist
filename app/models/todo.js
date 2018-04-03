@@ -1,9 +1,9 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
 
 const Todo = DS.Model.extend({
   text: DS.attr('string'),
   isCompleted: DS.attr('boolean', { defaultValue: false })
-});
+})
 
 Todo.reopenClass({
   FIXTURES: [
