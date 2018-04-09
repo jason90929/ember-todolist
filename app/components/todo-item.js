@@ -10,7 +10,7 @@ export default Component.extend({
       this.set('todo.isCompleted', !this.get('todo.isCompleted'))
     },
 
-    handleClickText () {
+    handleClickEdit () {
       this.send('showEdit')
       let el = this.$()
       if (!(el && el[0])) {
@@ -54,7 +54,7 @@ export default Component.extend({
       this.set('editingText', e.target.value)
     },
 
-    handleDelete (todo) {
+    handleDelete () {
       this.get('todo').destroyRecord()
     }
   }

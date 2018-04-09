@@ -20,13 +20,16 @@
         type="checkbox"
         checked=todo.isCompleted
         onchange=(action "toggleComplete")}}
+      <span
+        class="{{if todo.isCompleted "completed"}}">
+        {{todo.text}}
+      </span>
     </label>
-    <a
-      role="button"
-      class="{{if todo.isCompleted "completed"}}"
-      onclick={{action "handleClickText"}}>
-      {{todo.text}}
-    </a>
+    <button
+      type="button"
+      onclick={{action "handleClickEdit"}}>
+      Edit
+    </button>
     <button
       type="button"
       onclick={{action "handleDelete"}}>
