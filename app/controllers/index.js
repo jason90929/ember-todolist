@@ -1,28 +1,16 @@
 import Controller from '@ember/controller'
-import { computed } from '@ember/object';
+import { computed } from '@ember/object'
 
 export default Controller.extend({
   todoInput: '',
   filterType: 'all',
-  filterTypes: [{
-    name: 'all',
-    onclick () {
-      this.set('filterType', 'all')
-    }
-  }, {
-    name: 'completed',
-    onclick () {
-      this.set('filterType', 'completed')
-    }
-  }, {
-    name: 'uncompleted',
-    onclick () {
-      this.set('filterType', 'uncompleted')
-    }
-  }],
-  filterComputed: computed('model', 'filterType', function () {
+  filterTypes: [
+    'all',
+    'completed',
+    'uncompleted'
+  ],
+  filterComputed: computed('model.@each.isCompleted', 'filterType', function () {
     return this.get('model').filter(item => {
-      console.log('this.get(\'filterType\')', this.get('filterType'))
       switch (this.get('filterType')) {
         case 'all':
           return item
@@ -45,6 +33,9 @@ export default Controller.extend({
       const todo = this.get('store').createRecord('todo', payload)
       todo.save()
       this.set('todoInput', '')
+    },
+    setFilterType (type) {
+      this.set('filterType', type)
     }
   }
 })

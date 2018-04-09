@@ -1,9 +1,9 @@
-{{#each filterTypes as |item|}}
+{{#each filterTypes as |type|}}
 <button
   type="button"
-  disabled={{eq item.name filterType}}
-  {{action item.onclick}}>
-  {{item.name}}
+  disabled={{eq type filterType}}
+  {{action "setFilterType" type}}>
+  {{type}}
 </button>
 {{/each}}
 
