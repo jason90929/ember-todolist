@@ -1,3 +1,12 @@
+{{#each filterTypes as |item|}}
+<button
+  type="button"
+  disabled={{eq item.name filterType}}
+  {{action item.onclick}}>
+  {{item.name}}
+</button>
+{{/each}}
+
 <form>
   {{input
     type="text"
@@ -11,7 +20,7 @@
 </form>
 
 {{#todo-items}}
-  {{#each model as |todo|}}
+  {{#each filterComputed as |todo|}}
     {{todo-item todo=todo}}
   {{/each}}
 {{/todo-items}}
