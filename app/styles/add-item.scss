@@ -1,0 +1,42 @@
+@import "variables";
+
+.add-item-form {
+  position: relative;
+  width: 100%;
+}
+
+$height: 40px;
+$button-w: 100px;
+.add-item-input {
+  width: calc(100% - #{$button-w});
+  height: 40px;
+  border-width: 1px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.add-item-button {
+  width: $button-w;
+  height: $height;
+  font-size: 14px;
+}
+
+$bdrs: 5px;
+$bdc: #bdbcd1;
+.input-button-wrapper {
+  display: flex;
+
+  input {
+    border-style: solid;
+    border-color: $bdc;
+    border-top-left-radius: $bdrs;
+    border-bottom-left-radius: $bdrs;
+    border-right-width: 0;
+  }
+
+  button {
+    border-color: $bdc;
+    border-top-right-radius: $bdrs;
+    border-bottom-right-radius: $bdrs;
+  }
+}

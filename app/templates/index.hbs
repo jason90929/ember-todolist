@@ -1,26 +1,36 @@
-{{#each filterTypes as |type|}}
-<button
-  type="button"
-  disabled={{eq type filterType}}
-  {{action "setFilterType" type}}>
-  {{type}}
-</button>
-{{/each}}
+<ul class="filter-types">
+  {{#each filterTypes as |type|}}
+    <li class="filter-item">
+      {{filter-button
+        filterType=filterType
+        type=type
+        onclick=(action "setFilterType" type)}}
+    </li>
+  {{/each}}
+</ul>
 
-<form>
-  {{input
-    type="text"
-    placeholder="todo"
-    value=(mut todoInput)}}
-  <button
-    type="submit"
-    {{action "addTodo" todoInput}}>
-    Add
-  </button>
+<div class="splitter"></div>
+
+<form class="add-item-form">
+  <div class="input-button-wrapper">
+    {{input
+      type="text"
+      placeholder="Add todo..."
+      class="add-item-input"
+      value=(mut todoInput)}}
+    <button
+      type="submit"
+      class="add-item-button"
+      {{action "addTodo" todoInput}}>
+      ADD
+    </button>
+  </div>
 </form>
 
-{{#todo-items}}
+<div class="splitter"></div>
+
+<ul class="filter-items">
   {{#each filterComputed as |todo|}}
     {{todo-item todo=todo}}
   {{/each}}
-{{/todo-items}}
+</ul>
