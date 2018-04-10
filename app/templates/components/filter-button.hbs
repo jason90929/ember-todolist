@@ -1,6 +1,6 @@
 <button
   type="button"
-  class="filter-button"
+  class="filter-button {{if (eq type filterType) "filter-button-active"}}"
   disabled={{eq type filterType}}
   onclick={{onclick}}>
   {{type}}

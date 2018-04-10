@@ -30,13 +30,13 @@ $bdc: #bdbcd1;
     border-style: solid;
     border-color: $bdc;
     border-top-left-radius: $bdrs;
-    border-bottom-left-radius: $bdrs;
+    //border-bottom-left-radius: $bdrs;
     border-right-width: 0;
   }
 
   button {
     border-color: $bdc;
     border-top-right-radius: $bdrs;
-    border-bottom-right-radius: $bdrs;
+    //border-bottom-right-radius: $bdrs;
   }
 }

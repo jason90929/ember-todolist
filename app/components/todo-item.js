@@ -2,6 +2,8 @@ import Component from '@ember/component'
 import { schedule } from '@ember/runloop'
 
 export default Component.extend({
+  tagName: 'li',
+  classNames: 'todo-item',
   isEditing: false,
   editingText: '',
 
@@ -13,6 +15,7 @@ export default Component.extend({
     handleClickEdit () {
       this.send('showEdit')
       let el = this.$()
+      console.log('el', el)
       if (!(el && el[0])) {
         return
       }

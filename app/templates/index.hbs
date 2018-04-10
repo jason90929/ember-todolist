@@ -27,10 +27,10 @@
   </div>
 </form>
 
-<div class="splitter"></div>
-
-<ul class="filter-items">
+<ul class="todo-items">
   {{#each filterComputed as |todo|}}
     {{todo-item todo=todo}}
+  {{else}}
+    <div class="todo-items-empty">Todo list is empty.</div>
   {{/each}}
 </ul>

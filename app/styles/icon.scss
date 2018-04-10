@@ -1,0 +1,25 @@
+@import "variables";
+
+.icon {
+  display: inline-flex;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.icon-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-save {
+  background-image: url('./images/disk.png');
+}
+
+.icon-edit {
+  background-image: url('./images/pen.png');
+}
+
+.icon-delete {
+  background-image: url('./images/trash-can.png');
+}

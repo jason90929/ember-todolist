@@ -1,5 +1,7 @@
-@import "filter";
 @import "add-item";
+@import "filter";
+@import "icon";
+@import "todo-items";
 
 * {
   box-sizing: border-box;
@@ -15,7 +17,8 @@ html, body {
 .main {
   position: relative;
   width: 640px;
-  margin: 0 auto;
+  margin: auto;
+  padding: 60px 0;
   background-color: #f7f0c7;
 }
 
@@ -31,10 +34,6 @@ html, body {
   padding: 15px;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
 ul, li {
   margin: 0;
   padding: 0;
@@ -44,4 +43,12 @@ ul, li {
 .splitter {
   display: block;
   height: 20px;
+}
+
+input, button {
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
 }

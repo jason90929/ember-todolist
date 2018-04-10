@@ -1,39 +1,45 @@
-<li>
-  {{#if isEditing}}
-    <label>
-      <input
-        id="edit-input"
-        type="text"
-        value={{editingText}}
-        onblur={{action "closeEdit"}}
-        oninput={{action "editing"}}
-        onkeydown={{action "onkeydown"}}>
-    </label>
+{{#if isEditing}}
+  <label class="todo-item-label">
+    <input
+      id="edit-input"
+      type="text"
+      class="todo-item-input"
+      value={{editingText}}
+      onblur={{action "closeEdit"}}
+      oninput={{action "editing"}}
+      onkeydown={{action "onkeydown"}}>
+  </label>
+  <div class="todo-item-button-wrapper">
     <button
       type="button"
+      class="todo-item-button todo-item-save"
       onclick={{action "saveEdit"}}>
-      Save
+      <span class="icon icon-sm icon-save"></span>
     </button>
-  {{else}}
-    <label>
-      {{input
-        type="checkbox"
-        checked=todo.isCompleted
-        onchange=(action "toggleComplete")}}
-      <span
-        class="{{if todo.isCompleted "completed"}}">
-        {{todo.text}}
-      </span>
-    </label>
+  </div>
+{{else}}
+  <label class="todo-item-label">
+    {{input
+      type="checkbox"
+      checked=todo.isCompleted
+      class="todo-item-checkbox"
+      onchange=(action "toggleComplete")}}
+    <span class="todo-item-text{{if todo.isCompleted " completed"}}">
+      {{todo.text}}
+    </span>
+  </label>
+  <div class="todo-item-button-wrapper">
     <button
       type="button"
+      class="todo-item-button todo-item-edit"
       onclick={{action "handleClickEdit"}}>
-      Edit
+      <span class="icon icon-sm icon-edit"></span>
     </button>
     <button
       type="button"
+      class="todo-item-button todo-item-delete"
       onclick={{action "handleDelete"}}>
-      Delete
+      <span class="icon icon-sm icon-delete"></span>
     </button>
-  {{/if}}
-</li>
+  </div>
+{{/if}}
