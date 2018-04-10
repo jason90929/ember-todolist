@@ -9,17 +9,17 @@ Todo.reopenClass({
   FIXTURES: [
     {
       id: '1',
-      text: 'install ember-cli',
+      text: 'add ember',
       isCompleted: true
     },
     {
       id: '2',
-      text: 'install additional dependencies',
+      text: 'add some coding',
       isCompleted: true
     },
     {
       id: '3',
-      text: 'develop amazing things',
+      text: 'complete todo list!',
       isCompleted: false
     }
   ]

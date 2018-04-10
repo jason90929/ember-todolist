@@ -2,13 +2,16 @@ import Controller from '@ember/controller'
 import { computed } from '@ember/object'
 
 export default Controller.extend({
+  init () {
+    this._super(...arguments)
+    this.filterTypes = [
+      'all',
+      'completed',
+      'uncompleted'
+    ]
+  },
   todoInput: '',
   filterType: 'all',
-  filterTypes: [
-    'all',
-    'completed',
-    'uncompleted'
-  ],
   filterComputed: computed('model.@each.isCompleted', 'filterType', function () {
     return this.get('model').filter(item => {
       switch (this.get('filterType')) {
