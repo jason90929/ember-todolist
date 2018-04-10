@@ -1,17 +1,36 @@
-<form>
-  {{input
-    type="text"
-    placeholder="todo"
-    value=(mut todoInput)}}
-  <button
-    type="submit"
-    {{action "addTodo" todoInput}}>
-    Add
-  </button>
+<ul class="filter-types">
+  {{#each filterTypes as |type|}}
+    <li class="filter-item">
+      {{filter-button
+        filterType=filterType
+        type=type
+        onclick=(action "setFilterType" type)}}
+    </li>
+  {{/each}}
+</ul>
+
+<div class="splitter"></div>
+
+<form class="add-item-form">
+  <div class="input-button-wrapper">
+    {{input
+      type="text"
+      placeholder="Add todo..."
+      class="add-item-input"
+      value=(mut todoInput)}}
+    <button
+      type="submit"
+      class="add-item-button"
+      {{action "addTodo" todoInput}}>
+      ADD
+    </button>
+  </div>
 </form>
 
-{{#todo-items}}
-  {{#each model as |todo|}}
+<ul class="todo-items">
+  {{#each filterComputed as |todo|}}
     {{todo-item todo=todo}}
+  {{else}}
+    <div class="todo-items-empty">Todo list is empty.</div>
   {{/each}}
-{{/todo-items}}
+</ul>

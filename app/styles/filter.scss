@@ -1,0 +1,62 @@
+@import "variables";
+
+.filter-types {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-item {
+  position: relative;
+  display: flex;
+
+  & + .filter-item {
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $black;
+    }
+  }
+}
+
+.filter-button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding: 3px 10px;
+  text-transform: uppercase;
+  font-size: 16px;
+
+  &-active {
+    color: #ec1a20;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: #fff;
+  }
+
+  &:hover {
+    &:not(:disabled) {
+      &::before {
+        opacity: .4;
+      }
+    }
+  }
+}

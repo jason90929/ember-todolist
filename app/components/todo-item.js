@@ -1,21 +1,25 @@
 import Component from '@ember/component'
+import { schedule } from '@ember/runloop'
 
 export default Component.extend({
+  tagName: 'li',
+  classNames: 'todo-item',
   isEditing: false,
   editingText: '',
 
   actions: {
-    toggleComplete (todo) {
+    toggleComplete () {
       this.set('todo.isCompleted', !this.get('todo.isCompleted'))
     },
 
-    handleClickText () {
+    handleClickEdit () {
       this.send('showEdit')
       let el = this.$()
+      console.log('el', el)
       if (!(el && el[0])) {
         return
       }
-      Ember.run.schedule('afterRender', () => {
+      schedule('afterRender', () => {
         const input = el[0].querySelector('input')
         if (!input) {
           return
@@ -51,6 +55,10 @@ export default Component.extend({
 
     editing (e) {
       this.set('editingText', e.target.value)
+    },
+
+    handleDelete () {
+      this.get('todo').destroyRecord()
     }
   }
 })
